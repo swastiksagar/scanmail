@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Instant phishing risk analysis. Detects spoofed senders, malicious links, urgency tactics and more — right in your browser.",
+          "Paste any suspicious email and get an instant phishing risk score with a breakdown of red flags. Free, private, runs entirely in your browser.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
