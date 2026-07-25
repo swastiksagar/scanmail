@@ -158,10 +158,16 @@ function Home() {
           <div className="lg:col-span-2">
             {result ? <ResultPanel result={result} /> : <EmptyPanel />}
           </div>
+          </div>
         </section>
 
-        <section className="mt-20 grid gap-4 sm:grid-cols-3">
+        <section className="mt-20" aria-labelledby="features-heading">
+          <h2 id="features-heading" className="text-center font-display text-2xl font-bold">
+            Key security checks
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
+
             {
               icon: <FingerprintIcon className="h-5 w-5" />,
               title: "Sender forensics",
