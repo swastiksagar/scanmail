@@ -100,8 +100,13 @@ function Home() {
           </p>
         </section>
 
-        <section className="mt-12 grid gap-6 lg:grid-cols-5">
+        <section className="mt-12" aria-labelledby="scanner-heading">
+          <h2 id="scanner-heading" className="sr-only">
+            Email analysis tool
+          </h2>
+          <div className="grid gap-6 lg:grid-cols-5">
           <div className="glass-card rounded-2xl p-5 lg:col-span-3">
+
             <div className="flex items-center justify-between">
               <label htmlFor="email" className="text-sm font-semibold">
                 Suspicious email
