@@ -7,3 +7,7 @@ PhishGuard inspects sender headers, Reply-To mismatches, look-alike and punycode
 ## Pages
 
 - [Phishing Email Checker](/): Paste an email and get a phishing risk score plus a full list of detected red flags.
+
+## Guides
+
+- [How to Spot a Phishing Email](/blog/how-to-spot-a-phishing-email): 10 red flags, how to read email headers, phishing types, and what to do if you clicked.
