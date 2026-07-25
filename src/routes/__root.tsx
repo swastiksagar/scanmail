@@ -77,6 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "XCU8PsfE6vqyPRfX_QmKhNhc9B-wt-h0RifjSORjMRE" },
       { title: "PhishGuard — Free Phishing Email Checker" },
       {
         name: "description",
