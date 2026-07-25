@@ -195,6 +195,22 @@ function Home() {
           </div>
         </section>
 
+        <section className="mt-16 glass-card rounded-2xl p-6 text-center" aria-labelledby="learn-heading">
+          <h2 id="learn-heading" className="font-display text-2xl font-bold">
+            Learn to spot phishing yourself
+          </h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
+            Our guide walks through the 10 red flags in a phishing email, how to read message
+            headers, and exactly what to do if you already clicked a link.
+          </p>
+          <Link
+            to="/blog/how-to-spot-a-phishing-email"
+            className="mt-5 inline-flex rounded-lg border border-primary/40 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/20"
+          >
+            Read: How to spot a phishing email
+          </Link>
+        </section>
+
 
         <section className="mt-16 rounded-2xl border border-warn/30 bg-warn/5 p-5 text-sm text-muted-foreground">
           <strong className="text-warn">Heads up:</strong> PhishGuard is a heuristic aid, not a
