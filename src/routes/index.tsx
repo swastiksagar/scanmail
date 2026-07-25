@@ -5,21 +5,26 @@ import { analyzeEmail, type AnalysisResult, type Severity } from "@/lib/phishing
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "PhishGuard — Free Phishing Email Checker" },
+      { title: "Phishing Email Checker — Scan Any Email Free | PhishGuard" },
       {
         name: "description",
         content:
-          "Paste any suspicious email and get an instant phishing risk score with a breakdown of red flags. Free, private, runs entirely in your browser.",
+          "Paste a suspicious email and get an instant risk score with every red flag explained — sender spoofing, fake links, urgent language. Free and private.",
       },
-      { property: "og:title", content: "PhishGuard — Free Phishing Email Checker" },
+      {
+        property: "og:title",
+        content: "Phishing Email Checker — Scan Any Email Free",
+      },
       {
         property: "og:description",
         content:
-          "Paste any suspicious email and get an instant phishing risk score with a breakdown of red flags. Free, private, runs entirely in your browser.",
+          "Instant phishing risk score for any email you paste, with each red flag explained. No signup, nothing leaves your browser.",
       },
+      { property: "og:url", content: "https://phishemail.lovable.app/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: "https://phishemail.lovable.app/" }],
   }),
   component: Home,
 });
