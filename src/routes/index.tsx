@@ -100,8 +100,13 @@ function Home() {
           </p>
         </section>
 
-        <section className="mt-12 grid gap-6 lg:grid-cols-5">
+        <section className="mt-12" aria-labelledby="scanner-heading">
+          <h2 id="scanner-heading" className="sr-only">
+            Email analysis tool
+          </h2>
+          <div className="grid gap-6 lg:grid-cols-5">
           <div className="glass-card rounded-2xl p-5 lg:col-span-3">
+
             <div className="flex items-center justify-between">
               <label htmlFor="email" className="text-sm font-semibold">
                 Suspicious email
@@ -153,10 +158,16 @@ function Home() {
           <div className="lg:col-span-2">
             {result ? <ResultPanel result={result} /> : <EmptyPanel />}
           </div>
+          </div>
         </section>
 
-        <section className="mt-20 grid gap-4 sm:grid-cols-3">
+        <section className="mt-20" aria-labelledby="features-heading">
+          <h2 id="features-heading" className="text-center font-display text-2xl font-bold">
+            Key security checks
+          </h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[
+
             {
               icon: <FingerprintIcon className="h-5 w-5" />,
               title: "Sender forensics",
@@ -181,7 +192,9 @@ function Home() {
               <p className="mt-1 text-sm text-muted-foreground">{f.body}</p>
             </div>
           ))}
+          </div>
         </section>
+
 
         <section className="mt-16 rounded-2xl border border-warn/30 bg-warn/5 p-5 text-sm text-muted-foreground">
           <strong className="text-warn">Heads up:</strong> PhishGuard is a heuristic aid, not a
