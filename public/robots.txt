@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://phishemail.lovable.app/sitemap.xml
