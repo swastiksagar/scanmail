@@ -192,7 +192,9 @@ function Home() {
               <p className="mt-1 text-sm text-muted-foreground">{f.body}</p>
             </div>
           ))}
+          </div>
         </section>
+
 
         <section className="mt-16 rounded-2xl border border-warn/30 bg-warn/5 p-5 text-sm text-muted-foreground">
           <strong className="text-warn">Heads up:</strong> PhishGuard is a heuristic aid, not a
