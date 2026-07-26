@@ -276,25 +276,29 @@ function GuidePage() {
             </div>
           </section>
 
-          <section className="mt-14 rounded-2xl border border-primary/30 bg-primary/10 p-6 text-center">
-            <h2 className="font-display text-xl font-bold">Not sure about an email you received?</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
+          <section className="mt-14 border border-border-hard bg-secondary p-6">
+            <p className="fig-label">FIG_101 · try the scanner</p>
+            <h2 className="mt-3 text-xl">Not sure about an email you received?</h2>
+            <p className="mt-2 max-w-md text-[15px] leading-relaxed text-muted-foreground">
               Paste it into the free PhishGuard checker for an instant risk score and a breakdown of
               every red flag. Nothing leaves your browser.
             </p>
             <Link
               to="/"
-              className="mt-5 inline-flex rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:brightness-110"
+              className="mt-5 inline-flex border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85"
             >
-              Check an email now
+              Check an email now →
             </Link>
           </section>
         </article>
       </main>
 
-      <footer className="border-t border-border/50 py-8 text-center text-xs text-muted-foreground">
-        Built for safer inboxes · PhishGuard runs 100% client-side
+      <footer className="border-t border-border py-8">
+        <div className="mx-auto max-w-3xl px-6 font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+          Built for safer inboxes · PhishGuard runs 100% client-side
+        </div>
       </footer>
     </div>
   );
 }
+
