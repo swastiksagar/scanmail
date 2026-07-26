@@ -169,8 +169,8 @@ function GuidePage() {
           </section>
 
 
-          <section className="mt-14" aria-labelledby="check-headers">
-            <h2 id="check-headers" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="check-headers">
+            <h2 id="check-headers" className="text-2xl">
               How to check the email headers
             </h2>
             <p className="mt-3 text-muted-foreground">
@@ -196,8 +196,8 @@ function GuidePage() {
             </ul>
           </section>
 
-          <section className="mt-14" aria-labelledby="types">
-            <h2 id="types" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="types">
+            <h2 id="types" className="text-2xl">
               Types of phishing worth knowing
             </h2>
             <dl className="mt-4 space-y-3 text-sm">
@@ -228,8 +228,8 @@ function GuidePage() {
             </dl>
           </section>
 
-          <section className="mt-14" aria-labelledby="clicked">
-            <h2 id="clicked" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="clicked">
+            <h2 id="clicked" className="text-2xl">
               What to do if you already clicked
             </h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
@@ -247,8 +247,8 @@ function GuidePage() {
             </ol>
           </section>
 
-          <section className="mt-14" aria-labelledby="faq">
-            <h2 id="faq" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="faq">
+            <h2 id="faq" className="text-2xl">
               Frequently asked questions
             </h2>
             <div className="mt-4 space-y-5 text-sm">
