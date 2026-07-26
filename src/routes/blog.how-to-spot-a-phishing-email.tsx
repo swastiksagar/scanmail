@@ -116,51 +116,61 @@ const FLAGS = [
 function GuidePage() {
   return (
     <div className="min-h-screen text-foreground">
-      <header className="border-b border-border/50">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
-          <Link to="/" className="font-display text-lg font-bold tracking-tight">
-            PhishGuard
+      <header className="border-b border-border">
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
+          <Link to="/" className="flex items-center gap-3">
+            <span className="grid h-6 w-6 place-items-center border border-border-hard font-mono text-[11px] font-bold">
+              P
+            </span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em]">
+              PhishGuard / Guide
+            </span>
           </Link>
           <Link
             to="/"
-            className="rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition hover:brightness-110"
+            className="border border-border-hard px-3 py-1.5 font-mono text-[12px] transition hover:bg-secondary"
           >
             Check an email
           </Link>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-12">
+      <main className="mx-auto max-w-3xl px-6 pb-24 pt-14">
         <article>
-          <p className="text-xs uppercase tracking-widest text-primary">Security guide</p>
-          <h1 className="mt-3 text-balance text-4xl font-bold leading-tight sm:text-5xl">
+          <p className="fig-label">FIG_100 · security guide · red flags</p>
+          <h1 className="mt-4 text-balance text-4xl leading-[1.1] sm:text-5xl">
             How to spot a phishing email
           </h1>
-          <p className="mt-5 text-pretty text-lg text-muted-foreground">
+          <p className="mt-6 text-pretty text-lg leading-relaxed">
             Phishing still starts the majority of breaches, and modern attempts are polished — no
             typos, real logos, correct branding. Here are the ten signals that actually hold up,
             what to do when you find one, and how to recover if you already clicked.
           </p>
 
-          <section className="mt-12" aria-labelledby="red-flags">
-            <h2 id="red-flags" className="font-display text-2xl font-bold">
+          <section className="mt-12 border-t border-border pt-10" aria-labelledby="red-flags">
+            <h2 id="red-flags" className="text-2xl">
               10 red flags in a phishing email
             </h2>
-            <ol className="mt-6 space-y-5">
+            <ol className="mt-6 divide-y divide-border border-y border-border">
               {FLAGS.map((f, i) => (
-                <li key={f.title} className="glass-card rounded-2xl p-5">
-                  <h3 className="text-base font-semibold">
-                    <span className="mr-2 text-primary">{i + 1}.</span>
-                    {f.title}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{f.body}</p>
+                <li key={f.title} className="grid gap-1 py-5 sm:grid-cols-[3rem_1fr] sm:gap-6">
+                  <span className="font-mono text-[11px] tracking-[0.1em] text-faint">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="text-[17px] font-semibold">{f.title}</h3>
+                    <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">
+                      {f.body}
+                    </p>
+                  </div>
                 </li>
               ))}
             </ol>
           </section>
 
-          <section className="mt-14" aria-labelledby="check-headers">
-            <h2 id="check-headers" className="font-display text-2xl font-bold">
+
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="check-headers">
+            <h2 id="check-headers" className="text-2xl">
               How to check the email headers
             </h2>
             <p className="mt-3 text-muted-foreground">
@@ -186,8 +196,8 @@ function GuidePage() {
             </ul>
           </section>
 
-          <section className="mt-14" aria-labelledby="types">
-            <h2 id="types" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="types">
+            <h2 id="types" className="text-2xl">
               Types of phishing worth knowing
             </h2>
             <dl className="mt-4 space-y-3 text-sm">
@@ -218,8 +228,8 @@ function GuidePage() {
             </dl>
           </section>
 
-          <section className="mt-14" aria-labelledby="clicked">
-            <h2 id="clicked" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="clicked">
+            <h2 id="clicked" className="text-2xl">
               What to do if you already clicked
             </h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
@@ -237,8 +247,8 @@ function GuidePage() {
             </ol>
           </section>
 
-          <section className="mt-14" aria-labelledby="faq">
-            <h2 id="faq" className="font-display text-2xl font-bold">
+          <section className="mt-14 border-t border-border pt-10" aria-labelledby="faq">
+            <h2 id="faq" className="text-2xl">
               Frequently asked questions
             </h2>
             <div className="mt-4 space-y-5 text-sm">
@@ -266,25 +276,29 @@ function GuidePage() {
             </div>
           </section>
 
-          <section className="mt-14 rounded-2xl border border-primary/30 bg-primary/10 p-6 text-center">
-            <h2 className="font-display text-xl font-bold">Not sure about an email you received?</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
+          <section className="mt-14 border border-border-hard bg-secondary p-6">
+            <p className="fig-label">FIG_101 · try the scanner</p>
+            <h2 className="mt-3 text-xl">Not sure about an email you received?</h2>
+            <p className="mt-2 max-w-md text-[15px] leading-relaxed text-muted-foreground">
               Paste it into the free PhishGuard checker for an instant risk score and a breakdown of
               every red flag. Nothing leaves your browser.
             </p>
             <Link
               to="/"
-              className="mt-5 inline-flex rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:brightness-110"
+              className="mt-5 inline-flex border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85"
             >
-              Check an email now
+              Check an email now →
             </Link>
           </section>
         </article>
       </main>
 
-      <footer className="border-t border-border/50 py-8 text-center text-xs text-muted-foreground">
-        Built for safer inboxes · PhishGuard runs 100% client-side
+      <footer className="border-t border-border py-8">
+        <div className="mx-auto max-w-3xl px-6 font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+          Built for safer inboxes · PhishGuard runs 100% client-side
+        </div>
       </footer>
     </div>
   );
 }
+
