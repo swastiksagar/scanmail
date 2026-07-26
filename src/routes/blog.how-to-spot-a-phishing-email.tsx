@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 const TITLE = "How to Spot a Phishing Email: 10 Red Flags (2026 Guide)";
 const DESCRIPTION =
   "Spot a phishing email fast: 10 red flags including spoofed senders, look-alike domains, hidden links and urgent language — plus what to do if you clicked.";
-const URL = "https://phishemail.lovable.app/blog/how-to-spot-a-phishing-email";
+const URL = "https://scanmail.lovable.app/blog/how-to-spot-a-phishing-email";
 
 export const Route = createFileRoute("/blog/how-to-spot-a-phishing-email")({
   head: () => ({
