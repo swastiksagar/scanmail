@@ -116,36 +116,34 @@ const FLAGS = [
 function GuidePage() {
   return (
     <div className="min-h-screen text-foreground">
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-          <Link to="/" className="flex items-center gap-3">
-            <span className="grid h-6 w-6 place-items-center border border-border-hard font-mono text-[11px] font-bold">
+      <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
+        <div className="wrap flex h-[60px] items-center justify-between gap-4">
+          <Link to="/" className="flex min-w-0 items-center gap-[10px]">
+            <span className="grid h-5 w-5 shrink-0 place-items-center border-[1.5px] border-foreground font-mono text-[11px] font-bold">
               P
             </span>
-            <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em]">
+            <span className="truncate font-mono text-[13px] font-semibold uppercase tracking-[0.03em]">
               PhishGuard / Guide
             </span>
           </Link>
-          <Link
-            to="/"
-            className="border border-border-hard px-3 py-1.5 font-mono text-[12px] transition hover:bg-secondary"
-          >
+          <Link to="/" className="btn-base btn-ghost shrink-0">
             Check an email
           </Link>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-14">
+      <main className="wrap pb-20 pt-[70px]">
         <article>
           <p className="fig-label">FIG_100 · security guide · red flags</p>
-          <h1 className="mt-4 text-balance text-4xl leading-[1.1] sm:text-5xl">
+          <h1 className="mt-5 text-[clamp(32px,5vw,52px)] font-semibold leading-[1.05] tracking-[-0.01em]">
             How to spot a phishing email
           </h1>
-          <p className="mt-6 text-pretty text-lg leading-relaxed">
+          <p className="lede mt-[22px]">
             Phishing still starts the majority of breaches, and modern attempts are polished — no
             typos, real logos, correct branding. Here are the ten signals that actually hold up,
             what to do when you find one, and how to recover if you already clicked.
           </p>
+
 
           <section className="mt-12 border-t border-border pt-10" aria-labelledby="red-flags">
             <h2 id="red-flags" className="text-2xl">
