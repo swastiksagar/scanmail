@@ -48,15 +48,15 @@ Act now to avoid permanent closure of your account!!!
 `;
 
 function severityStyles(sev: Severity) {
-  if (sev === "high") return "bg-danger/15 text-danger border-danger/40";
-  if (sev === "medium") return "bg-warn/15 text-warn border-warn/40";
-  return "bg-muted text-muted-foreground border-border";
+  if (sev === "high") return "border-danger/40 bg-danger/5 text-danger";
+  if (sev === "medium") return "border-warn/40 bg-warn/5 text-warn";
+  return "border-border bg-secondary text-muted-foreground";
 }
 
 function verdictTheme(v: AnalysisResult["verdict"]) {
-  if (v === "Likely Phishing") return { color: "text-danger", ring: "ring-danger/50", bar: "bg-danger" };
-  if (v === "Suspicious") return { color: "text-warn", ring: "ring-warn/50", bar: "bg-warn" };
-  return { color: "text-safe", ring: "ring-safe/50", bar: "bg-safe" };
+  if (v === "Likely Phishing") return { color: "text-danger", bar: "bg-danger" };
+  if (v === "Suspicious") return { color: "text-warn", bar: "bg-warn" };
+  return { color: "text-safe", bar: "bg-safe" };
 }
 
 function Home() {
@@ -67,60 +67,67 @@ function Home() {
 
   return (
     <div className="min-h-screen text-foreground">
-      <header className="border-b border-border/50">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <div className="flex items-center gap-2.5">
-            <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary/15 ring-1 ring-primary/40">
-              <ShieldIcon className="h-5 w-5 text-primary" />
-            </div>
-            <div>
-              <div className="font-display text-lg font-bold tracking-tight">PhishGuard</div>
-              <div className="text-[11px] uppercase tracking-widest text-muted-foreground">
-                Email Threat Scanner
-              </div>
-            </div>
-          </div>
-          <div className="hidden items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted-foreground sm:flex">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-safe" />
-            100% client-side · nothing is uploaded
-          </div>
+      <header className="border-b border-border">
+        <div className="mx-auto flex max-w-3xl items-center gap-3 px-6 py-4">
+          <span className="grid h-6 w-6 place-items-center border border-border-hard font-mono text-[11px] font-bold">
+            P
+          </span>
+          <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em]">
+            PhishGuard / Email Checker
+          </span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 pb-24 pt-14">
-        <section className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-            <SparkIcon className="h-3.5 w-3.5" />
-            Free · No signup · No data leaves your device
-          </div>
-          <h1 className="mt-5 text-balance text-5xl font-bold leading-[1.05] sm:text-6xl">
-            Is that email a{" "}
-            <span className="bg-gradient-to-r from-primary to-[oklch(0.75_0.18_260)] bg-clip-text text-transparent">
-              phishing attempt?
-            </span>
+      <main className="mx-auto max-w-3xl px-6 pb-24 pt-16">
+        <section>
+          <p className="fig-label">FIG_000 · heuristic scanner v1.0 · 2026 · client-side · free</p>
+          <h1 className="mt-4 text-balance text-5xl leading-[1.06] sm:text-6xl">
+            Phishing Email
+            <br />
+            <span className="text-muted-foreground/70">Checker</span>
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-pretty text-base text-muted-foreground sm:text-lg">
-            Paste any suspicious message — headers, body, links, the works. Get a risk score in
-            milliseconds with a breakdown of every red flag we find.
+          <p className="mt-6 max-w-xl text-lg leading-relaxed">
+            Paste any suspicious message — headers, body, links, the works. Every scan returns a
+            risk score, a plain "why this is a flag" line, and a term-by-term breakdown of exactly
+            what tripped.
           </p>
+          <p className="mt-5 max-w-2xl font-mono text-[13px] leading-relaxed text-muted-foreground">
+            Organized the way an analyst triages: sender forensics, link intelligence, language
+            pressure, payload risk. Nothing is uploaded. It runs on your own machine, in your own
+            browser.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#scanner"
+              className="border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85"
+            >
+              Scan an email →
+            </a>
+            <Link
+              to="/blog/how-to-spot-a-phishing-email"
+              className="border border-border-hard px-5 py-2.5 font-mono text-[13px] transition hover:bg-secondary"
+            >
+              Read the guide
+            </Link>
+          </div>
         </section>
 
-        <section className="mt-12" aria-labelledby="scanner-heading">
-          <h2 id="scanner-heading" className="sr-only">
-            Email analysis tool
+        <section id="scanner" className="mt-16 border-t border-border pt-12" aria-labelledby="scanner-heading">
+          <p className="fig-label">FIG_001 · the scanner</p>
+          <h2 id="scanner-heading" className="mt-3 text-2xl">
+            Paste the email
           </h2>
-          <div className="grid gap-6 lg:grid-cols-5">
-          <div className="glass-card rounded-2xl p-5 lg:col-span-3">
 
+          <div className="mt-6">
             <div className="flex items-center justify-between">
-              <label htmlFor="email" className="text-sm font-semibold">
-                Suspicious email
+              <label htmlFor="email" className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
+                Raw message
               </label>
-              <div className="flex gap-2 text-xs">
+              <div className="flex gap-2 font-mono text-[11px]">
                 <button
                   type="button"
                   onClick={() => setInput(SAMPLE)}
-                  className="rounded-md border border-border bg-secondary/60 px-2.5 py-1 text-muted-foreground transition hover:text-foreground"
+                  className="border border-border px-2.5 py-1 text-muted-foreground transition hover:bg-secondary hover:text-foreground"
                 >
                   Load example
                 </button>
@@ -130,7 +137,7 @@ function Home() {
                     setInput("");
                     setSubmitted(null);
                   }}
-                  className="rounded-md border border-border bg-secondary/60 px-2.5 py-1 text-muted-foreground transition hover:text-foreground"
+                  className="border border-border px-2.5 py-1 text-muted-foreground transition hover:bg-secondary hover:text-foreground"
                 >
                   Clear
                 </button>
@@ -140,92 +147,88 @@ function Home() {
               id="email"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder={"Paste the full email here — include the From, Subject, and body.\n\nExample:\nFrom: ...\nSubject: ...\n\n(body)"}
-              className="mt-3 h-80 w-full resize-y rounded-xl border border-border bg-input/60 p-4 font-mono text-sm text-foreground outline-none ring-primary/40 placeholder:text-muted-foreground/70 focus:ring-2"
+              placeholder={"From: ...\nSubject: ...\n\n(body)"}
+              className="mt-3 h-72 w-full resize-y border border-border-hard bg-background p-4 font-mono text-[13px] leading-relaxed text-foreground outline-none placeholder:text-faint focus:border-primary"
               spellCheck={false}
             />
             <div className="mt-4 flex items-center justify-between">
-              <p className="text-xs text-muted-foreground">
+              <p className="font-mono text-[11px] text-muted-foreground">
                 {input.length.toLocaleString()} characters
               </p>
               <button
                 type="button"
                 disabled={input.trim().length < 10}
                 onClick={() => setSubmitted(input)}
-                className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--shadow-glow)] transition hover:brightness-110 disabled:opacity-40 disabled:shadow-none"
+                className="border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85 disabled:opacity-30"
               >
-                <ScanIcon className="h-4 w-4" />
-                Analyze email
+                Analyze email →
               </button>
             </div>
           </div>
 
-          <div className="lg:col-span-2">
-            {result ? <ResultPanel result={result} /> : <EmptyPanel />}
-          </div>
-          </div>
+          <div className="mt-10">{result ? <ResultPanel result={result} /> : <EmptyPanel />}</div>
         </section>
 
-        <section className="mt-20" aria-labelledby="features-heading">
-          <h2 id="features-heading" className="text-center font-display text-2xl font-bold">
+        <section className="mt-16 border-t border-border pt-12" aria-labelledby="features-heading">
+          <p className="fig-label">FIG_002 · what gets checked</p>
+          <h2 id="features-heading" className="mt-3 text-2xl">
             Key security checks
           </h2>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          {[
-
-            {
-              icon: <FingerprintIcon className="h-5 w-5" />,
-              title: "Sender forensics",
-              body: "Detects display-name spoofing, Reply-To mismatches, and brand impersonation from free email accounts.",
-            },
-            {
-              icon: <LinkIcon className="h-5 w-5" />,
-              title: "Link intelligence",
-              body: "Flags look-alike domains, punycode, URL shorteners, raw IPs, and hidden mismatched hyperlinks.",
-            },
-            {
-              icon: <LockIcon className="h-5 w-5" />,
-              title: "Private by design",
-              body: "Analysis runs entirely in your browser. Your email content never leaves this page.",
-            },
-          ].map((f) => (
-            <div key={f.title} className="glass-card rounded-2xl p-5">
-              <div className="grid h-9 w-9 place-items-center rounded-lg bg-primary/15 text-primary ring-1 ring-primary/30">
-                {f.icon}
+          <dl className="mt-6 divide-y divide-border border-y border-border">
+            {[
+              {
+                title: "Sender forensics",
+                body: "Detects display-name spoofing, Reply-To mismatches, and brand impersonation from free email accounts.",
+              },
+              {
+                title: "Link intelligence",
+                body: "Flags look-alike domains, punycode, URL shorteners, raw IPs, and hidden mismatched hyperlinks.",
+              },
+              {
+                title: "Private by design",
+                body: "Analysis runs entirely in your browser. Your email content never leaves this page.",
+              },
+            ].map((f, i) => (
+              <div key={f.title} className="grid gap-1 py-5 sm:grid-cols-[9rem_1fr] sm:gap-6">
+                <dt className="font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+                  {String(i + 1).padStart(2, "0")} · {f.title}
+                </dt>
+                <dd className="text-[15px] leading-relaxed text-muted-foreground">{f.body}</dd>
               </div>
-              <h3 className="mt-4 text-base font-semibold">{f.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{f.body}</p>
-            </div>
-          ))}
-          </div>
+            ))}
+          </dl>
         </section>
 
-        <section className="mt-16 glass-card rounded-2xl p-6 text-center" aria-labelledby="learn-heading">
-          <h2 id="learn-heading" className="font-display text-2xl font-bold">
+        <section className="mt-16 border-t border-border pt-12" aria-labelledby="learn-heading">
+          <p className="fig-label">FIG_003 · further reading</p>
+          <h2 id="learn-heading" className="mt-3 text-2xl">
             Learn to spot phishing yourself
           </h2>
-          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-            Our guide walks through the 10 red flags in a phishing email, how to read message
+          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+            The guide walks through the 10 red flags in a phishing email, how to read message
             headers, and exactly what to do if you already clicked a link.
           </p>
           <Link
             to="/blog/how-to-spot-a-phishing-email"
-            className="mt-5 inline-flex rounded-lg border border-primary/40 bg-primary/10 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/20"
+            className="mt-5 inline-flex border-b border-primary font-mono text-[13px] text-primary transition hover:opacity-70"
           >
-            Read: How to spot a phishing email
+            How to spot a phishing email →
           </Link>
         </section>
 
-
-        <section className="mt-16 rounded-2xl border border-warn/30 bg-warn/5 p-5 text-sm text-muted-foreground">
-          <strong className="text-warn">Heads up:</strong> PhishGuard is a heuristic aid, not a
-          verdict. When in doubt, do not click links or reply — verify the sender through an
-          independent, trusted channel.
+        <section className="mt-16 border-t border-border pt-8">
+          <p className="max-w-2xl font-mono text-[12px] leading-relaxed text-muted-foreground">
+            <span className="text-warn">Heads up —</span> PhishGuard is a heuristic aid, not a
+            verdict. When in doubt, do not click links or reply; verify the sender through an
+            independent, trusted channel.
+          </p>
         </section>
       </main>
 
-      <footer className="border-t border-border/50 py-8 text-center text-xs text-muted-foreground">
-        Built for safer inboxes · PhishGuard runs 100% client-side
+      <footer className="border-t border-border py-8">
+        <div className="mx-auto max-w-3xl px-6 font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+          Built for safer inboxes · PhishGuard runs 100% client-side
+        </div>
       </footer>
     </div>
   );
@@ -233,18 +236,16 @@ function Home() {
 
 function EmptyPanel() {
   return (
-    <div className="glass-card flex h-full min-h-[420px] flex-col items-center justify-center rounded-2xl p-8 text-center">
-      <div className="grid h-14 w-14 place-items-center rounded-2xl bg-primary/10 ring-1 ring-primary/30">
-        <ShieldIcon className="h-7 w-7 text-primary" />
-      </div>
-      <h3 className="mt-4 font-display text-lg font-semibold">Awaiting scan</h3>
-      <p className="mt-1 max-w-xs text-sm text-muted-foreground">
-        Paste an email on the left and hit <span className="text-foreground">Analyze</span> to see
-        a full risk breakdown here.
+    <div className="border border-dashed border-border-hard p-8 text-center">
+      <p className="fig-label">Awaiting scan</p>
+      <p className="mx-auto mt-2 max-w-sm text-[15px] text-muted-foreground">
+        Paste an email above and hit <span className="text-foreground">Analyze</span> to see the
+        full risk breakdown here.
       </p>
     </div>
   );
 }
+
 
 function ResultPanel({ result }: { result: AnalysisResult }) {
   const theme = verdictTheme(result.verdict);
