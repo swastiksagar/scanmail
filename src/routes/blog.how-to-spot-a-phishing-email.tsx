@@ -145,8 +145,8 @@ function GuidePage() {
           </p>
 
 
-          <section className="mt-12 border-t border-border pt-10" aria-labelledby="red-flags">
-            <h2 id="red-flags" className="text-2xl">
+          <section className="mt-14 border-t border-border pt-14" aria-labelledby="red-flags">
+            <h2 id="red-flags" className="text-[26px]">
               10 red flags in a phishing email
             </h2>
             <ol className="mt-6 divide-y divide-border border-y border-border">
@@ -168,7 +168,7 @@ function GuidePage() {
 
 
           <section className="mt-14 border-t border-border pt-10" aria-labelledby="check-headers">
-            <h2 id="check-headers" className="text-2xl">
+            <h2 id="check-headers" className="text-[26px]">
               How to check the email headers
             </h2>
             <p className="mt-3 text-muted-foreground">
@@ -195,7 +195,7 @@ function GuidePage() {
           </section>
 
           <section className="mt-14 border-t border-border pt-10" aria-labelledby="types">
-            <h2 id="types" className="text-2xl">
+            <h2 id="types" className="text-[26px]">
               Types of phishing worth knowing
             </h2>
             <dl className="mt-4 space-y-3 text-sm">
@@ -227,7 +227,7 @@ function GuidePage() {
           </section>
 
           <section className="mt-14 border-t border-border pt-10" aria-labelledby="clicked">
-            <h2 id="clicked" className="text-2xl">
+            <h2 id="clicked" className="text-[26px]">
               What to do if you already clicked
             </h2>
             <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
@@ -246,7 +246,7 @@ function GuidePage() {
           </section>
 
           <section className="mt-14 border-t border-border pt-10" aria-labelledby="faq">
-            <h2 id="faq" className="text-2xl">
+            <h2 id="faq" className="text-[26px]">
               Frequently asked questions
             </h2>
             <div className="mt-4 space-y-5 text-sm">
@@ -292,7 +292,7 @@ function GuidePage() {
       </main>
 
       <footer className="border-t border-border py-8">
-        <div className="mx-auto max-w-3xl px-6 font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+        <div className="wrap font-mono text-[12px] text-muted-foreground">
           Built for safer inboxes · PhishGuard runs 100% client-side
         </div>
       </footer>
