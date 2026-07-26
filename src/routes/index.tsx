@@ -246,54 +246,44 @@ function EmptyPanel() {
   );
 }
 
-
 function ResultPanel({ result }: { result: AnalysisResult }) {
   const theme = verdictTheme(result.verdict);
   return (
-    <div className="glass-card rounded-2xl p-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <div className="text-xs uppercase tracking-widest text-muted-foreground">Verdict</div>
-          <div className={`mt-1 font-display text-2xl font-bold ${theme.color}`}>
-            {result.verdict}
+    <div className="border border-border-hard p-6">
+      <p className="fig-label">Result</p>
+      <div className="mt-3 flex items-end justify-between gap-4 border-b border-border pb-5">
+        <div className={`text-3xl ${theme.color}`}>{result.verdict}</div>
+        <div className="text-right">
+          <div className={`font-mono text-3xl font-semibold leading-none ${theme.color}`}>
+            {result.score}
           </div>
-        </div>
-        <div
-          className={`grid h-20 w-20 shrink-0 place-items-center rounded-full bg-card ring-4 ${theme.ring}`}
-        >
-          <div className="text-center leading-none">
-            <div className={`text-2xl font-bold ${theme.color}`}>{result.score}</div>
-            <div className="mt-0.5 text-[10px] uppercase tracking-wider text-muted-foreground">
-              risk
-            </div>
+          <div className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-faint">
+            risk / 100
           </div>
         </div>
       </div>
 
-      <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-muted">
-        <div
-          className={`h-full ${theme.bar} transition-all`}
-          style={{ width: `${result.score}%` }}
-        />
+      <div className="mt-4 h-1.5 w-full bg-secondary">
+        <div className={`h-full ${theme.bar} transition-all`} style={{ width: `${result.score}%` }} />
       </div>
 
       {(result.stats.fromDomain || result.stats.subject) && (
-        <dl className="mt-5 grid grid-cols-1 gap-2 text-xs">
+        <dl className="mt-5 space-y-1.5 font-mono text-[12px]">
           {result.stats.subject && (
-            <div className="flex gap-2">
-              <dt className="w-20 shrink-0 text-muted-foreground">Subject</dt>
-              <dd className="truncate font-mono">{result.stats.subject}</dd>
+            <div className="flex gap-3">
+              <dt className="w-24 shrink-0 text-faint">Subject</dt>
+              <dd className="truncate">{result.stats.subject}</dd>
             </div>
           )}
           {result.stats.fromDomain && (
-            <div className="flex gap-2">
-              <dt className="w-20 shrink-0 text-muted-foreground">From domain</dt>
-              <dd className="truncate font-mono">{result.stats.fromDomain}</dd>
+            <div className="flex gap-3">
+              <dt className="w-24 shrink-0 text-faint">From domain</dt>
+              <dd className="truncate">{result.stats.fromDomain}</dd>
             </div>
           )}
-          <div className="flex gap-2">
-            <dt className="w-20 shrink-0 text-muted-foreground">Links</dt>
-            <dd className="font-mono">
+          <div className="flex gap-3">
+            <dt className="w-24 shrink-0 text-faint">Links</dt>
+            <dd>
               {result.stats.urls.length} found ·{" "}
               <span className={result.stats.suspiciousUrls.length ? "text-danger" : "text-safe"}>
                 {result.stats.suspiciousUrls.length} suspicious
@@ -303,23 +293,18 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         </dl>
       )}
 
-      <div className="mt-6">
-        <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-          Findings ({result.findings.length})
-        </div>
-        <ul className="space-y-2">
+      <div className="mt-7">
+        <p className="fig-label">Breakdown ({result.findings.length})</p>
+        <ul className="mt-3 space-y-2">
           {result.findings.map((f) => (
-            <li
-              key={f.id}
-              className={`rounded-lg border px-3 py-2.5 text-sm ${severityStyles(f.severity)}`}
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span className="font-semibold">{f.title}</span>
-                <span className="text-[10px] uppercase tracking-wider opacity-80">
+            <li key={f.id} className={`border-l-2 py-2 pl-3 ${severityStyles(f.severity)}`}>
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="text-[15px] font-semibold">{f.title}</span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.1em] opacity-80">
                   {f.severity}
                 </span>
               </div>
-              <p className="mt-1 text-xs opacity-90">{f.detail}</p>
+              <p className="mt-1 text-[13px] leading-relaxed opacity-90">{f.detail}</p>
             </li>
           ))}
         </ul>
@@ -328,53 +313,3 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
   );
 }
 
-/* ---------- Icons ---------- */
-function ShieldIcon(p: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
-      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      <path d="m9 12 2 2 4-4" />
-    </svg>
-  );
-}
-function ScanIcon(p: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
-      <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
-      <path d="M3 12h18" />
-    </svg>
-  );
-}
-function SparkIcon(p: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...p}>
-      <path d="M12 2 13.9 8.1 20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2z" />
-    </svg>
-  );
-}
-function FingerprintIcon(p: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
-      <path d="M12 11v3a10 10 0 0 1-2 6" />
-      <path d="M16 11a4 4 0 0 0-8 0v3a11 11 0 0 1-3 7.5" />
-      <path d="M20 11a8 8 0 0 0-14.5-4.6" />
-      <path d="M4 15a10 10 0 0 0 .5 3" />
-    </svg>
-  );
-}
-function LinkIcon(p: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
-      <path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" />
-      <path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" />
-    </svg>
-  );
-}
-function LockIcon(p: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}>
-      <rect x="3" y="11" width="18" height="11" rx="2" />
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-    </svg>
-  );
-}
