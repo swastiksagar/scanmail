@@ -20,11 +20,11 @@ export const Route = createFileRoute("/")({
         content:
           "Instant phishing risk score for any email you paste, with each red flag explained. No signup, nothing leaves your browser.",
       },
-      { property: "og:url", content: "https://phishemail.lovable.app/" },
+      { property: "og:url", content: "https://scanmail.lovable.app/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://phishemail.lovable.app/" }],
+    links: [{ rel: "canonical", href: "https://scanmail.lovable.app/" }],
   }),
   component: Home,
 });
