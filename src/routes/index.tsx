@@ -301,13 +301,13 @@ function ResultPanel({ result }: { result: AnalysisResult }) {
         <ul className="mt-3 space-y-2">
           {result.findings.map((f) => (
             <li key={f.id} className={`border-l-2 py-2 pl-3 ${severityStyles(f.severity)}`}>
-              <div className="flex items-baseline justify-between gap-3">
+              <div className="grid grid-cols-[minmax(0,1fr)_4.5rem] items-baseline gap-3">
                 <span className="text-[15px] font-semibold">{f.title}</span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.1em] opacity-80">
+                <span className="text-left font-mono text-[10px] uppercase tracking-[0.1em] opacity-80">
                   {f.severity}
                 </span>
               </div>
-              <p className="mt-1 text-[13px] leading-relaxed opacity-90">{f.detail}</p>
+              <p className="mt-1 pr-[4.5rem] text-[13px] leading-relaxed opacity-90">{f.detail}</p>
             </li>
           ))}
         </ul>
