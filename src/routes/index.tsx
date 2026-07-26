@@ -67,50 +67,45 @@ function Home() {
 
   return (
     <div className="min-h-screen text-foreground">
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-3xl items-center gap-3 px-6 py-4">
-          <span className="grid h-6 w-6 place-items-center border border-border-hard font-mono text-[11px] font-bold">
+      <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
+        <div className="wrap flex h-[60px] items-center gap-[10px]">
+          <span className="grid h-5 w-5 shrink-0 place-items-center border-[1.5px] border-foreground font-mono text-[11px] font-bold">
             P
           </span>
-          <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em]">
+          <span className="truncate font-mono text-[13px] font-semibold uppercase tracking-[0.03em]">
             PhishGuard / Email Checker
           </span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-16">
+      <main className="wrap pb-20 pt-[70px]">
         <section>
           <p className="fig-label">FIG_000 · heuristic scanner v1.0 · 2026 · client-side · free</p>
-          <h1 className="mt-4 text-balance text-5xl leading-[1.06] sm:text-6xl">
+          <h1 className="mt-5 text-[clamp(38px,6vw,64px)] font-semibold leading-[1.02] tracking-[-0.01em]">
             Phishing Email
             <br />
-            <span className="text-muted-foreground/70">Checker</span>
+            <span className="font-normal text-faint">Checker</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed">
+          <p className="lede mt-[22px]">
             Paste any suspicious message — headers, body, links, the works. Every scan returns a
             risk score, a plain "why this is a flag" line, and a term-by-term breakdown of exactly
             what tripped.
           </p>
-          <p className="mt-5 max-w-2xl font-mono text-[13px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-[68ch] font-mono text-[12.5px] leading-relaxed text-faint">
             Organized the way an analyst triages: sender forensics, link intelligence, language
             pressure, payload risk. Nothing is uploaded. It runs on your own machine, in your own
             browser.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#scanner"
-              className="border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85"
-            >
+          <div className="mt-[30px] flex flex-wrap gap-3">
+            <a href="#scanner" className="btn-base btn-primary">
               Scan an email →
             </a>
-            <Link
-              to="/blog/how-to-spot-a-phishing-email"
-              className="border border-border-hard px-5 py-2.5 font-mono text-[13px] transition hover:bg-secondary"
-            >
+            <Link to="/blog/how-to-spot-a-phishing-email" className="btn-base btn-ghost">
               Read the guide
             </Link>
           </div>
         </section>
+
 
         <section id="scanner" className="mt-16 border-t border-border pt-12" aria-labelledby="scanner-heading">
           <p className="fig-label">FIG_001 · the scanner</p>
