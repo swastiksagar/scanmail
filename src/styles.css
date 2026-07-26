@@ -5,10 +5,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
-  --radius-xl: 0px;
+  --radius-sm: 3px;
+  --radius-md: 3px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -46,7 +47,8 @@
 }
 
 :root {
-  --radius: 0px;
+  --radius: 3px;
+
   /* Editorial / print paper theme */
   --background: #fafaf5;
   --foreground: #1a1a1a;
@@ -85,7 +87,8 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: var(--font-display);
+    font-family: var(--font-sans);
+    line-height: 1.6;
     font-synthesis-weight: none;
     -webkit-font-smoothing: antialiased;
   }
@@ -103,7 +106,7 @@
 @utility glass-card {
   background: var(--color-background);
   border: 1px solid var(--color-border);
-  border-radius: 0;
+  border-radius: 3px;
   box-shadow: none;
 }
 
@@ -111,15 +114,69 @@
   background: var(--secondary);
 }
 
+/* 980px editorial measure, matching the reference layout */
+@utility wrap {
+  width: 100%;
+  max-width: 980px;
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+
 /* Monospaced figure/eyebrow label, like FIG_000 · ... */
 @utility fig-label {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
+  font-size: 12px;
+  letter-spacing: 0.04em;
   color: var(--ink-faint);
-  text-transform: uppercase;
+}
+
+/* Serif lede paragraph under the h1 */
+@utility lede {
+  font-family: var(--font-display);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 62ch;
+}
+
+@utility prose-p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  max-width: 68ch;
+}
+
+@utility btn-base {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  padding: 11px 18px;
+  border-radius: 3px;
+  border: 1px solid var(--color-foreground);
+  transition: all 0.15s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@utility btn-primary {
+  background: var(--color-foreground);
+  color: var(--color-background);
+  &:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+  }
+}
+
+@utility btn-ghost {
+  border-color: var(--border-hard);
+  color: var(--muted-foreground);
+  &:hover {
+    border-color: var(--color-foreground);
+    color: var(--color-foreground);
+  }
 }
 
 @utility rule-top {
   border-top: 1px solid var(--color-border);
 }
+

@@ -67,56 +67,52 @@ function Home() {
 
   return (
     <div className="min-h-screen text-foreground">
-      <header className="border-b border-border">
-        <div className="mx-auto flex max-w-3xl items-center gap-3 px-6 py-4">
-          <span className="grid h-6 w-6 place-items-center border border-border-hard font-mono text-[11px] font-bold">
+      <header className="sticky top-0 z-30 border-b border-border bg-background/90 backdrop-blur">
+        <div className="wrap flex h-[60px] items-center gap-[10px]">
+          <span className="grid h-5 w-5 shrink-0 place-items-center border-[1.5px] border-foreground font-mono text-[11px] font-bold">
             P
           </span>
-          <span className="font-mono text-xs font-semibold uppercase tracking-[0.14em]">
+          <span className="truncate font-mono text-[13px] font-semibold uppercase tracking-[0.03em]">
             PhishGuard / Email Checker
           </span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-6 pb-24 pt-16">
+      <main className="wrap pb-20 pt-[70px]">
         <section>
           <p className="fig-label">FIG_000 · heuristic scanner v1.0 · 2026 · client-side · free</p>
-          <h1 className="mt-4 text-balance text-5xl leading-[1.06] sm:text-6xl">
+          <h1 className="mt-5 text-[clamp(38px,6vw,64px)] font-semibold leading-[1.02] tracking-[-0.01em]">
             Phishing Email
             <br />
-            <span className="text-muted-foreground/70">Checker</span>
+            <span className="font-normal text-faint">Checker</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed">
+          <p className="lede mt-[22px]">
             Paste any suspicious message — headers, body, links, the works. Every scan returns a
             risk score, a plain "why this is a flag" line, and a term-by-term breakdown of exactly
             what tripped.
           </p>
-          <p className="mt-5 max-w-2xl font-mono text-[13px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-[68ch] font-mono text-[12.5px] leading-relaxed text-faint">
             Organized the way an analyst triages: sender forensics, link intelligence, language
             pressure, payload risk. Nothing is uploaded. It runs on your own machine, in your own
             browser.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="#scanner"
-              className="border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85"
-            >
+          <div className="mt-[30px] flex flex-wrap gap-3">
+            <a href="#scanner" className="btn-base btn-primary">
               Scan an email →
             </a>
-            <Link
-              to="/blog/how-to-spot-a-phishing-email"
-              className="border border-border-hard px-5 py-2.5 font-mono text-[13px] transition hover:bg-secondary"
-            >
+            <Link to="/blog/how-to-spot-a-phishing-email" className="btn-base btn-ghost">
               Read the guide
             </Link>
           </div>
         </section>
 
-        <section id="scanner" className="mt-16 border-t border-border pt-12" aria-labelledby="scanner-heading">
+
+        <section id="scanner" className="mt-14 border-t border-border pt-14" aria-labelledby="scanner-heading">
           <p className="fig-label">FIG_001 · the scanner</p>
-          <h2 id="scanner-heading" className="mt-3 text-2xl">
+          <h2 id="scanner-heading" className="mt-3.5 text-[26px]">
             Paste the email
           </h2>
+
 
           <div className="mt-6">
             <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
@@ -160,21 +156,23 @@ function Home() {
                 type="button"
                 disabled={input.trim().length < 10}
                 onClick={() => setSubmitted(input)}
-                className="shrink-0 border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85 disabled:opacity-30"
+                className="btn-base btn-primary shrink-0 disabled:opacity-30"
               >
                 Analyze email →
               </button>
+
             </div>
           </div>
 
           <div className="mt-10">{result ? <ResultPanel result={result} /> : <EmptyPanel />}</div>
         </section>
 
-        <section className="mt-16 border-t border-border pt-12" aria-labelledby="features-heading">
+        <section className="mt-14 border-t border-border pt-14" aria-labelledby="features-heading">
           <p className="fig-label">FIG_002 · what gets checked</p>
-          <h2 id="features-heading" className="mt-3 text-2xl">
+          <h2 id="features-heading" className="mt-3.5 text-[26px]">
             Key security checks
           </h2>
+
           <dl className="mt-6 divide-y divide-border border-y border-border">
             {[
               {
@@ -191,35 +189,36 @@ function Home() {
               },
             ].map((f, i) => (
               <div key={f.title} className="grid gap-1 py-5 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
-                <dt className="font-mono text-[11px] uppercase leading-relaxed tracking-[0.1em] text-faint">
+                <dt className="font-mono text-[11.5px] uppercase leading-relaxed tracking-[0.06em] text-faint">
                   {String(i + 1).padStart(2, "0")} · {f.title}
                 </dt>
-                <dd className="min-w-0 text-[15px] leading-relaxed text-muted-foreground">{f.body}</dd>
+                <dd className="prose-p min-w-0">{f.body}</dd>
+
 
               </div>
             ))}
           </dl>
         </section>
 
-        <section className="mt-16 border-t border-border pt-12" aria-labelledby="learn-heading">
+        <section className="mt-14 border-t border-border pt-14" aria-labelledby="learn-heading">
           <p className="fig-label">FIG_003 · further reading</p>
-          <h2 id="learn-heading" className="mt-3 text-2xl">
+          <h2 id="learn-heading" className="mt-3.5 text-[26px]">
             Learn to spot phishing yourself
           </h2>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted-foreground">
+          <p className="prose-p mt-3.5">
             The guide walks through the 10 red flags in a phishing email, how to read message
             headers, and exactly what to do if you already clicked a link.
           </p>
           <Link
             to="/blog/how-to-spot-a-phishing-email"
-            className="mt-5 inline-flex border-b border-primary font-mono text-[13px] text-primary transition hover:opacity-70"
+            className="mt-5 inline-flex border-b border-primary font-mono text-[12.5px] text-primary transition hover:opacity-70"
           >
             How to spot a phishing email →
           </Link>
         </section>
 
-        <section className="mt-16 border-t border-border pt-8">
-          <p className="max-w-2xl font-mono text-[12px] leading-relaxed text-muted-foreground">
+        <section className="mt-14 border-t border-border pt-10">
+          <p className="max-w-[68ch] font-mono text-[12px] leading-relaxed text-muted-foreground">
             <span className="text-warn">Heads up —</span> PhishGuard is a heuristic aid, not a
             verdict. When in doubt, do not click links or reply; verify the sender through an
             independent, trusted channel.
@@ -227,11 +226,12 @@ function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-border py-8">
-        <div className="mx-auto max-w-3xl px-6 font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+      <footer className="border-t border-border py-[34px]">
+        <div className="wrap font-mono text-[12px] text-muted-foreground">
           Built for safer inboxes · PhishGuard runs 100% client-side
         </div>
       </footer>
+
     </div>
   );
 }
