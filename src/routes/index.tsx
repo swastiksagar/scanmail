@@ -119,11 +119,11 @@ function Home() {
           </h2>
 
           <div className="mt-6">
-            <div className="flex items-center justify-between">
+            <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
               <label htmlFor="email" className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted-foreground">
                 Raw message
               </label>
-              <div className="flex gap-2 font-mono text-[11px]">
+              <div className="flex shrink-0 gap-2 font-mono text-[11px]">
                 <button
                   type="button"
                   onClick={() => setInput(SAMPLE)}
@@ -151,15 +151,16 @@ function Home() {
               className="mt-3 h-72 w-full resize-y border border-border-hard bg-background p-4 font-mono text-[13px] leading-relaxed text-foreground outline-none placeholder:text-faint focus:border-primary"
               spellCheck={false}
             />
-            <div className="mt-4 flex items-center justify-between">
-              <p className="font-mono text-[11px] text-muted-foreground">
+            <div className="mt-4 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
+              <p className="min-w-0 font-mono text-[11px] text-muted-foreground">
                 {input.length.toLocaleString()} characters
               </p>
+
               <button
                 type="button"
                 disabled={input.trim().length < 10}
                 onClick={() => setSubmitted(input)}
-                className="border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85 disabled:opacity-30"
+                className="shrink-0 border border-foreground bg-foreground px-5 py-2.5 font-mono text-[13px] text-background transition hover:opacity-85 disabled:opacity-30"
               >
                 Analyze email →
               </button>
@@ -189,11 +190,12 @@ function Home() {
                 body: "Analysis runs entirely in your browser. Your email content never leaves this page.",
               },
             ].map((f, i) => (
-              <div key={f.title} className="grid gap-1 py-5 sm:grid-cols-[9rem_1fr] sm:gap-6">
-                <dt className="font-mono text-[11px] uppercase tracking-[0.1em] text-faint">
+              <div key={f.title} className="grid gap-1 py-5 sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-6">
+                <dt className="font-mono text-[11px] uppercase leading-relaxed tracking-[0.1em] text-faint">
                   {String(i + 1).padStart(2, "0")} · {f.title}
                 </dt>
-                <dd className="text-[15px] leading-relaxed text-muted-foreground">{f.body}</dd>
+                <dd className="min-w-0 text-[15px] leading-relaxed text-muted-foreground">{f.body}</dd>
+
               </div>
             ))}
           </dl>
@@ -236,9 +238,10 @@ function Home() {
 
 function EmptyPanel() {
   return (
-    <div className="border border-dashed border-border-hard p-8 text-center">
+    <div className="border border-dashed border-border-hard p-8">
       <p className="fig-label">Awaiting scan</p>
-      <p className="mx-auto mt-2 max-w-sm text-[15px] text-muted-foreground">
+      <p className="mt-2 max-w-md text-[15px] text-muted-foreground">
+
         Paste an email above and hit <span className="text-foreground">Analyze</span> to see the
         full risk breakdown here.
       </p>
