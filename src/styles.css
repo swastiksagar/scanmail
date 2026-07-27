@@ -180,3 +180,34 @@
   border-top: 1px solid var(--color-border);
 }
 
+
+/* Full-bleed band that escapes the 980px measure */
+@utility bleed {
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+/* Tinted "at a glance" strip, as on the reference layout */
+@utility stat-band {
+  background: var(--secondary);
+  border-block: 1px solid var(--color-border);
+}
+
+/* Thin progress meter under a stat figure */
+@utility meter {
+  height: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Tinted editorial callout note */
+@utility note-box {
+  background: var(--accent);
+  border: 1px solid color-mix(in oklab, var(--accent-foreground) 25%, transparent);
+  border-radius: 3px;
+  padding: 18px 20px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
