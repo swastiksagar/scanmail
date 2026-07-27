@@ -150,7 +150,7 @@ function Home() {
 
 
 
-        <section id="scanner" className="mt-14 border-t border-border pt-14" aria-labelledby="scanner-heading">
+        <section id="scanner" className="pt-14" aria-labelledby="scanner-heading">
           <p className="fig-label">FIG_001 · the scanner</p>
           <h2 id="scanner-heading" className="mt-3.5 text-[26px]">
             Paste the email
