@@ -78,20 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "XCU8PsfE6vqyPRfX_QmKhNhc9B-wt-h0RifjSORjMRE" },
-      { title: "PhishGuard — Free Phishing Email Checker" },
-      {
-        name: "description",
-        content:
-          "Paste any suspicious email and get an instant phishing risk score with a breakdown of red flags. Free, private, runs entirely in your browser.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:title", content: "PhishGuard — Free Phishing Email Checker" },
-      { name: "twitter:title", content: "PhishGuard — Free Phishing Email Checker" },
-      { property: "og:description", content: "Paste any suspicious email and get an instant phishing risk score with a breakdown of red flags. Free, private, runs entirely in your browser." },
-      { name: "twitter:description", content: "Paste any suspicious email and get an instant phishing risk score with a breakdown of red flags. Free, private, runs entirely in your browser." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/70df4a62-ebf2-409b-b9c4-b35f27e76e38/id-preview-2b0cba76--4c86ccbf-eeb6-4df1-8bbb-0bc9d55590ac.lovable.app-1784896351501.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/70df4a62-ebf2-409b-b9c4-b35f27e76e38/id-preview-2b0cba76--4c86ccbf-eeb6-4df1-8bbb-0bc9d55590ac.lovable.app-1784896351501.png" },
+      { property: "og:site_name", content: "PhishGuard" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
