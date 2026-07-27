@@ -122,6 +122,33 @@ function Home() {
           </div>
         </section>
 
+        <section className="bleed stat-band mt-14 py-9" aria-label="Scanner at a glance">
+          <div className="wrap">
+            <p className="fig-label uppercase tracking-[0.08em]">Scanner at a glance</p>
+            <div className="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-3 lg:grid-cols-5">
+              {[
+                { label: "Detection rules", value: "40+", fill: 82 },
+                { label: "Signal categories", value: "6", fill: 60 },
+                { label: "Avg. scan time", value: "<1s", fill: 95 },
+                { label: "Data uploaded", value: "0 KB", fill: 100 },
+                { label: "Price", value: "Free", fill: 100 },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="flex items-baseline justify-between gap-3 font-mono text-[12px]">
+                    <span className="text-muted-foreground">{s.label}</span>
+                    <span className="font-semibold text-foreground">{s.value}</span>
+                  </div>
+                  <div className="meter mt-2">
+                    <div className="h-full bg-primary" style={{ width: `${s.fill}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+
+
 
         <section id="scanner" className="mt-14 border-t border-border pt-14" aria-labelledby="scanner-heading">
           <p className="fig-label">FIG_001 · the scanner</p>
