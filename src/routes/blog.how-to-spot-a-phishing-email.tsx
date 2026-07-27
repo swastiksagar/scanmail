@@ -295,7 +295,7 @@ function GuidePage() {
           </section>
 
           <section className="mt-14 border border-border-hard bg-secondary p-6">
-            <p className="fig-label">FIG_101 · try the scanner</p>
+            <p className="fig-label">FIG_106 · try the scanner</p>
             <h2 className="mt-3 text-xl">Not sure about an email you received?</h2>
             <p className="mt-2 max-w-md text-[15px] leading-relaxed text-muted-foreground">
               Paste it into the free PhishGuard checker for an instant risk score and a breakdown of
