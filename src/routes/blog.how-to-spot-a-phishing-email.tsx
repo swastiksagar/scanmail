@@ -143,12 +143,32 @@ function GuidePage() {
             typos, real logos, correct branding. Here are the ten signals that actually hold up,
             what to do when you find one, and how to recover if you already clicked.
           </p>
-
+          <p className="mt-5 max-w-[68ch] font-mono text-[12.5px] leading-relaxed text-faint">
+            Written the way an analyst reads a suspicious message: sender first, links second,
+            language third, attachments last. Every flag below includes what it looks like and why
+            it works.
+          </p>
+          <div className="mt-[30px] flex flex-wrap gap-3">
+            <a href="#red-flags" className="btn-base btn-primary">
+              Read the red flags →
+            </a>
+            <Link to="/" className="btn-base btn-ghost">
+              Scan an email
+            </Link>
+          </div>
 
           <section className="mt-14 border-t border-border pt-14" aria-labelledby="red-flags">
-            <h2 id="red-flags" className="text-[26px]">
+            <p className="fig-label">FIG_101 · the checklist · 10 signals</p>
+            <h2 id="red-flags" className="mt-3.5 text-[26px]">
               10 red flags in a phishing email
             </h2>
+            <div className="note-box mt-6">
+              <strong className="font-semibold text-foreground">How to use this list:</strong> no
+              single flag proves phishing on its own. Read the sender address in full, then the
+              links, then the request. Two or more flags in the same message means stop and verify
+              out of band — a phone call to a number you already have, never one from the email.
+            </div>
+
             <ol className="mt-6 divide-y divide-border border-y border-border">
               {FLAGS.map((f, i) => (
                 <li key={f.title} className="grid gap-1 py-5 sm:grid-cols-[3rem_1fr] sm:gap-6">
